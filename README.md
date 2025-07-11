@@ -1,33 +1,46 @@
 # Online_payment_fraud_detection-Using-ML
 This project focuses on detecting fraudulent online payment transactions using machine learning, specifically leveraging a Random Forest Classifier enhanced with SMOTE (Synthetic Minority Over-sampling Technique) to handle class imbalance.
 
-Key Steps in the Workflow:
-Data Loading and Preprocessing:
+*🔑 Key Steps in the Workflow*
+*1. 📥 Data Loading and Preprocessing*
+The dataset is loaded using Pandas.
 
-Dataset is loaded using Pandas.
+Categorical feature 'type' is one-hot encoded to convert it into numeric format.
 
-Categorical feature 'type' is one-hot encoded.
+Irrelevant columns such as 'nameOrig' and 'nameDest' are dropped.
 
-Irrelevant columns like 'nameOrig' and 'nameDest' are dropped.
+Missing values are handled using SimpleImputer with the mean strategy.
 
-Missing values are handled using SimpleImputer with mean strategy.
+*2. ✂️ Train-Test Split*
+The dataset is split into 70% training and 30% testing data using train_test_split.
 
-Train-Test Split:
+*3. ⚖️ Handling Class Imbalance with SMOTE*
+SMOTE (Synthetic Minority Over-sampling Technique) is applied to the training set only.
 
-The dataset is split into 70% training and 30% testing data.
+It oversamples the minority (fraud) class to balance the dataset.
 
-Handling Class Imbalance with SMOTE:
+*4. 🌲 Model Training*
+A Random Forest Classifier with:
 
-SMOTE is applied only on the training data to oversample the fraud class.
+n_estimators=100
 
-Model Training:
+criterion='entropy'
 
-A Random Forest Classifier with 100 estimators and entropy criterion is trained on the balanced dataset.
+random_state=7
 
-Model Evaluation:
+The model is trained on the balanced training data (after applying SMOTE).
 
-Predictions are made on the test set.
+*5. 📊 Model Evaluation*
+The trained model is used to make predictions on the test set.
 
-Performance metrics including accuracy, precision, recall, and a confusion matrix are used to evaluate the model.
+Evaluation is performed using:
 
-The confusion matrix is visualized using matplotlib.
+Accuracy
+
+Precision
+
+Recall
+
+Confusion Matrix
+
+The confusion matrix is displayed using Matplotlib for better visualization
